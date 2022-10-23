@@ -4,12 +4,15 @@ import {
   NestModule,
   RequestMethod,
 } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { typeORMConfig } from './config/typeorm.config';
 import { LogMiddleWare } from './middleware/log.middleware';
 import { UserController } from './user/user.controller';
 import { UserModule } from './user/user.module';
+import { ParticipantsModule } from './participants/participants.module';
 
 @Module({
-  imports: [UserModule],
+  imports: [TypeOrmModule.forRoot(typeORMConfig), UserModule, ParticipantsModule],
   controllers: [],
   providers: [],
 })
