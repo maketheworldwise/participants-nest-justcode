@@ -20,4 +20,8 @@ export class ParticipantsRepository extends Repository<Participants> {
 
     return participants ? true : false;
   }
+
+  async onRead(): Promise<Participants[]> {
+    return await this.find();
+  }
 }
